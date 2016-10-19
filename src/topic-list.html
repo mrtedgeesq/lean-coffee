@@ -1,0 +1,37 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/iron-elements/iron-elements.html">
+<dom-module id="topic-list">
+    <template>
+        <iron-list items="[[topics]]" as="item" scroll-target="html">
+            <template>
+                <iron-image class="avatar" sizing="contain" src="[[item.image]]"></iron-image>
+                <div class="pad">
+                    <div class="primary">[[item.name]] [[index]]</div>
+                    <div> Votes: [[item.votes]]</div>
+                    <div class="layout vertical">
+                        <paper-icon-button icon="up-arrow"></paper-icon-button>
+                        <paper-icon-button icon="down-arrou"></paper-icon-button>
+                    </div>
+                </div>
+            </template>
+        </iron-list>
+    </template>
+    <script>
+        Polymer({
+            is: 'topic-list',
+            properties: {
+                topics: {
+                    type: Array,
+                    observer: 'topicsChanged'
+                }
+            },
+            ready: function() {
+                console.log('READY!');
+
+            },
+            topicsChanged: function() {
+                console.log(this.topics);
+            }
+        }); 
+    </script>
+</dom-module>

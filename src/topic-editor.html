@@ -1,0 +1,34 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-elements/paper-elements.html">
+<link rel="import" href="../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+
+<dom-module id="topic-editor">
+  <template>
+    <style include="iron-flex iron-flex-alignment">
+    :host {
+        display: block;
+    }
+    </style>
+    <div class="layout horizontal">
+      Test
+      <paper-input value="{{topic.name}}" flex></paper-input>
+      <paper-icon-button icon="add" onTap="save"></paper-icon-button>
+    </div>
+  </template>
+  <script>
+    Polymer({
+      is: 'topic-editor',
+      properties: {
+          topic: {
+              type: Object,
+              value: {} 
+          }
+      },
+      save: function(){
+        this.fire('save', topic); //fire an event
+        topic = {}; //empty the box
+      }
+    });
+  </script>
+</dom-module>
