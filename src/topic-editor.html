@@ -9,12 +9,17 @@
     :host {
         display: block;
     }
+
+    .container {
+      @apply(--layout-horizontal);
+      align-items: center;
+      justify-content: center;
+    }
     </style>
-    <div class="layout horizontal">
-      Test
-      <paper-input value="{{topic.name}}" flex></paper-input>
-      <paper-icon-button icon="add" onTap="save"></paper-icon-button>
-    </div>
+    <paper-card class="container flex">
+          <paper-input value="{{topic.name}}" class="flex" label="Topic Name"></paper-input>
+          <paper-icon-button icon="add" on-tap="_save"></paper-icon-button>
+    </paper-card>
   </template>
   <script>
     Polymer({
@@ -25,9 +30,10 @@
               value: {} 
           }
       },
-      save: function(){
-        this.fire('save', topic); //fire an event
-        topic = {}; //empty the box
+      _save: function(){
+        console.log('save');
+        this.fire('save', this.topic); //fire an event
+        this.set('topic', {}); //empty the box
       }
     });
   </script>

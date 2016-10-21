@@ -1,33 +1,46 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/app-elements/app-elements.html">
 <link rel="import" href="../bower_components/paper-elements/paper-elements.html">
-<link rel="import" href="../bower_components/iron-icons/iron-icons.html">
-<link rel="import" href="../bower_components/iron-list/iron-list.html">
-<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
-<link rel="import" href="../bower_components/app-layout/app-layout.html"
+<link rel="import" href="../bower_components/iron-elements/iron-elements.html">
 <link rel="import" href="topic-editor.html">
+<link rel="import" href="topic-list.html">
 <dom-module id="coffee-app">
   <template>
     <style include="iron-flex iron-flex-alignment">
-    :host {
-        display: block;
-    }
+      :host {
+          display: block;
+      }
+    
+      .container {
+        @apply(--layout-vertical);
+        height:100vh;
+      }
+
+      app-header {
+        background-color: #0b8043;
+        color: white;
+        --app-header-background-front-layer: {
+          background-color: #4285f4;
+        }
+      }
     </style>
+    <!--<div class="container">
+      <div>Top</div>
+      <div class="flex">Middle</div>
+      <div>Bottom</div>
+    </div>-->
+    <div class="container">
       <app-header condenses fixed effects="resize-title blend-background waterfall">
         <app-toolbar>
-          <paper-icon-button icon="menu" drawer-toggle></paper-icon-button>
-          <h4 condensed-title>Lean Coffee PWA</h4>
-          <paper-icon-button icon="user"></paper-icon-button>
+          <h4 condensed-title>Lean Coffee PWA - Small Title</h4>
         </app-toolbar>
         <app-toolbar class="tall">
           <h1 main-title>Lean Coffee PWA</h1>
         </app-toolbar>
       </app-header>
-      <iron-list as="item" items="[[topics]]" scroll-target="html" flex>
-        <template>
-          [[item.name]]
-        </template>
-      </iron-list>
+      <topic-list class="flex" topics="[[topics]]"></topic-list>
       <topic-editor on-save="save"></topic-editor>
+    </div>
   </template>
   <script>
     Polymer({
@@ -64,6 +77,83 @@
               },
               votes: 2
             },
+            {
+              name: "Topic 5",
+              creator: {
+                //user object
+              },
+              votes: 2
+            },
+            {
+              name: "Topic 6",
+              creator: {
+                //user object
+              },
+              votes: 2
+            },
+            {
+              name: "Topic 7",
+              creator: {
+                //user object
+              },
+              votes: 2
+            },
+            {
+              name: "Topic 8",
+              creator: {
+                //user object
+              },
+              votes: 2
+            },
+            {
+              name: "Topic 9",
+              creator: {
+                //user object
+              },
+              votes: 6
+            },
+            {
+              name: "Topic 10",
+              creator: {
+                //user object
+              },
+              votes: 3
+            },
+            {
+              name: "Topic 11",
+              creator: {
+                //user object
+              },
+              votes: 2
+            },
+            {
+              name: "Topic 12",
+              creator: {
+                //user object
+              },
+              votes: 2
+            },
+            {
+              name: "Topic 13",
+              creator: {
+                //user object
+              },
+              votes: 2
+            },
+            {
+              name: "Topic 14",
+              creator: {
+                //user object
+              },
+              votes: 2
+            },
+            {
+              name: "Topic 15",
+              creator: {
+                //user object
+              },
+              votes: 2
+            }
           ]
         }
       },
